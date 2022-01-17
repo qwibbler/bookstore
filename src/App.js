@@ -1,25 +1,16 @@
-import logo from './logo.svg';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Books from './redux/books/books';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <Router>
+      <Routes>
+        <Route path="/" element={<Books />} />
+        <Route path="/categories" element={<h1>Under Construction</h1>} />
+      </Routes>
+    </Router>
+  </div>
+);
 
 export default App;
