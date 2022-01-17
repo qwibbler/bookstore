@@ -5,14 +5,15 @@ import AddBook from '../../components/add-book';
 const Books = () => {
   const books = [
     {
-      title: 'Test Title',
-      author: 'Test Author',
-      category: 'Test Category',
-      id: 'Test Id',
-      progress: {
-        current: 10,
-        total: 50,
-      },
+      // BOOK TEMPLATE
+      // title: 'Title',
+      // author: 'Author',
+      // category: 'Category',
+      // id: 'Id',
+      // progress: {
+      //   current: 10,
+      //   total: 50,
+      // },
     },
   ];
 
