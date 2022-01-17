@@ -11,21 +11,21 @@ const App = () => (
         <Route
           exact
           path="/"
-          element={
+          element={(
             <>
               <Header />
               <Books />
             </>
-          }
+          )}
         />
         <Route
           path="/categories"
-          element={
+          element={(
             <>
               <Header />
               <Categories />
             </>
-          }
+          )}
         />
       </Routes>
     </Router>
