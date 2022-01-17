@@ -1,7 +1,7 @@
 import React from 'react';
 import Progress from './progress';
 
-const Book = props => (
+const Book = (props) => (
   <div className="book-wrapper" key={props.id}>
     <div className="book-details">
       <p className="category">{props.category}</p>

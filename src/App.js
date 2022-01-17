@@ -10,21 +10,21 @@ const App = () => (
       <Routes>
         <Route
           path="/books"
-          element={
+          element={(
             <>
               <Header />
               <Books />
             </>
-          }
+          )}
         />
         <Route
           path="/categories"
-          element={
+          element={(
             <>
               <Header />
               <Categories />
             </>
-          }
+          )}
         />
       </Routes>
     </Router>
