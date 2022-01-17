@@ -25,6 +25,7 @@ const Books = () => {
         author={book.author}
         id={book.id}
         progress={book.progress}
+        category={book.category}
       />,
     );
   });
