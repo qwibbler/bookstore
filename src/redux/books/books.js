@@ -6,14 +6,14 @@ const Books = () => {
   const books = [
     {
       // BOOK TEMPLATE
-      // title: 'Title',
-      // author: 'Author',
-      // category: 'Category',
-      // id: 'Id',
-      // progress: {
-      //   current: 10,
-      //   total: 50,
-      // },
+      title: 'Title',
+      author: 'Author',
+      category: 'Category',
+      id: 'Id',
+      progress: {
+        current: 10,
+        total: 50,
+      },
     },
   ];
 
