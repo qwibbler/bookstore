@@ -9,22 +9,23 @@ const App = () => (
     <Router>
       <Routes>
         <Route
-          path="/books"
-          element={(
+          exact
+          path="/"
+          element={
             <>
               <Header />
               <Books />
             </>
-          )}
+          }
         />
         <Route
           path="/categories"
-          element={(
+          element={
             <>
               <Header />
               <Categories />
             </>
-          )}
+          }
         />
       </Routes>
     </Router>
