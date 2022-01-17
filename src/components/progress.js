@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Progress = (props) => {
-  const percentage = (props.progress.current / props.progress.total) * 100;
+  const { progress } = props;
+  const percentage = (progress.current / progress.total) * 100;
   return (
     <div className="progress-wrapper">
       <div className="show-progress">
-        {/* <img src={} alt={'Progress' + props.progress} /> */}
         <p>{`${percentage}%`}</p>
         <p>Complete</p>
       </div>
@@ -13,12 +14,14 @@ const Progress = (props) => {
         <p>Current chapter</p>
         <p>
           Chapter
-          {props.progress.current}
+          {progress.current}
         </p>
         <button type="button" className="update">Update Progress</button>
-        "
       </div>
     </div>
   );
+};
+Progress.propTypes = {
+  progress: PropTypes.objectOf(PropTypes.number).isRequired,
 };
 export default Progress;
