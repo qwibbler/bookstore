@@ -7,26 +7,10 @@ import './App.css';
 const App = () => (
   <div className="App">
     <Router>
+      <Header />
       <Routes>
-        <Route
-          exact
-          path="/"
-          element={(
-            <>
-              <Header />
-              <Books />
-            </>
-          )}
-        />
-        <Route
-          path="/categories"
-          element={(
-            <>
-              <Header />
-              <Categories />
-            </>
-          )}
-        />
+        <Route exact path="/" element={<Books />} />
+        <Route path="/categories" element={<Categories />} />
       </Routes>
     </Router>
   </div>
