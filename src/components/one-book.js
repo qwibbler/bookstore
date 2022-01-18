@@ -4,7 +4,9 @@ import Progress from './progress';
 import BookDetails from './book-details';
 
 const Book = (props) => {
-  const { title, author, category, progress, id } = props;
+  const {
+    title, author, category, progress, id,
+  } = props;
   return (
     <div className="book-wrapper">
       <BookDetails title={title} author={author} category={category} id={id} />

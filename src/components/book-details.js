@@ -4,8 +4,10 @@ import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
 
 const BookDetails = (props) => {
-  const { title, author, category, id } = props;
-  const dispatch = useDispatch()
+  const {
+    title, author, category, id,
+  } = props;
+  const dispatch = useDispatch();
   const remove = () => {
     dispatch(removeBook(id));
   };
@@ -16,7 +18,7 @@ const BookDetails = (props) => {
       <p className="author">{author}</p>
       <ul className="options">
         <li>Comments</li>
-        <li><button onClick={remove}>Remove</button></li>
+        <li><button type="button" onClick={remove}>Remove</button></li>
         <li>Edit</li>
       </ul>
     </div>
@@ -24,7 +26,8 @@ const BookDetails = (props) => {
 };
 BookDetails.propTypes = {
   title: PropTypes.string.isRequired,
-  author: PropTypes.string,
-  category: PropTypes.string,
+  author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 export default BookDetails;

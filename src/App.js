@@ -1,7 +1,7 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/header';
-import Books from './pages/books';
-import Categories from './pages/categories';
+import Books from './pages/books-page';
+import Categories from './pages/categories-page';
 import './App.css';
 
 const App = () => (
