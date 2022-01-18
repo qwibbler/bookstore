@@ -1,30 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/books';
 
 const AddBook = () => {
+  const [state, setState] = useState({
+    title: '',
+    author: '',
+  });
+
+  const handleChange = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const dispatch = useDispatch();
-  const submitBookToStore = () => {
-    const title = document.getElementById('input-title');
-    const author = document.getElementById('input-author');
-    if (title.value) {
+  const submitBookToStore = (e) => {
+    e.preventDefault();
+    if (state.title) {
       const newBook = {
         id: uuidv4(),
-        title: title.value,
-        author: author.value || 'Anonymous',
+        title: state.title,
+        author: state.author || 'Anonymous',
       };
-      title.value = '';
-      author.value = '';
       dispatch(addBook(newBook));
+      setState({
+        title: '',
+        author: '',
+      });
     }
   };
 
   return (
     <form>
-      <input type="text" id="input-title" placeholder="Book Title" required />
+      <input
+        type="text"
+        id="input-title"
+        name="title"
+        placeholder="Book Title"
+        value={state.title}
+        onChange={handleChange}
+        required
+      />
       by
-      <input type="text" id="input-author" placeholder="Author" />
+      <input
+        type="text"
+        id="input-author"
+        name="author"
+        placeholder="Author"
+        value={state.author}
+        onChange={handleChange}
+      />
       <input type="select" placeholder="Category" disabled />
       <input type="submit" value="Add Book" onClick={submitBookToStore} />
     </form>
