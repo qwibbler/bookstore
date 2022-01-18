@@ -1,32 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Progress from './progress';
+import BookDetails from './book-details';
 
 const Book = (props) => {
-  const {
-    title, author, id, category, progress,
-  } = props;
+  const { title, author, category, progress, id } = props;
   return (
-    <div className="book-wrapper" key={id}>
-      <div className="book-details">
-        <p className="category">{category}</p>
-        <p className="book-title">{title}</p>
-        <p className="author">{author}</p>
-        <ul className="options">
-          <li>Comments</li>
-          <li>Remove</li>
-          <li>Edit</li>
-        </ul>
-      </div>
+    <div className="book-wrapper">
+      <BookDetails title={title} author={author} category={category} id={id} />
       <Progress progress={progress} />
     </div>
   );
 };
+Book.defaultProps = {
+  author: 'Anonymous',
+  category: 'Unsorted',
+  progress: {
+    current: 0,
+    total: 100,
+  },
+};
 Book.propTypes = {
   title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  author: PropTypes.string,
   id: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  progress: PropTypes.objectOf(PropTypes.number).isRequired,
+  category: PropTypes.string,
+  progress: PropTypes.objectOf(PropTypes.number),
 };
 export default Book;
