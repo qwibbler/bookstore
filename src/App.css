@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-.books-list {
-  display: flex;
+#books-list {
+  display: grid;
+  gap: 2rem;
   flex-wrap: wrap;
 }
 
