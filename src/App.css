@@ -1,3 +1,14 @@
 .App {
   text-align: center;
 }
+
+#books-list {
+  display: grid;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.book-wrapper {
+  display: flex;
+  justify-content: center;
+}

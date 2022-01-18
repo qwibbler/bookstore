@@ -1,40 +1,27 @@
-import React from 'react';
-import Book from '../../components/book';
-import AddBook from '../../components/add-book';
+const ADD_BOOK = 'bookStore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 
-const Books = () => {
-  const books = [
-    {
-      // BOOK TEMPLATE
-      title: 'Title',
-      author: 'Author',
-      category: 'Category',
-      id: 'Id',
-      progress: {
-        current: 10,
-        total: 50,
-      },
-    },
-  ];
+const initialState = [];
 
-  const arr = [];
-  books.forEach((book) => {
-    arr.push(
-      <Book
-        title={book.title}
-        author={book.author}
-        id={book.id}
-        progress={book.progress}
-        category={book.category}
-      />,
-    );
-  });
+export const addBook = (payload) => ({
+  type: ADD_BOOK,
+  payload,
+});
 
-  return (
-    <section className="books-section">
-      {arr}
-      <AddBook />
-    </section>
-  );
+export const removeBook = (id) => ({
+  type: REMOVE_BOOK,
+  id,
+});
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_BOOK:
+      return [...state, action.payload];
+    case REMOVE_BOOK:
+      return state.filter((book) => book.id !== action.id);
+    default:
+      return state;
+  }
 };
-export default Books;
+
+export default reducer;
