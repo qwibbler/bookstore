@@ -2,8 +2,7 @@ const GET_BOOKS_LOADING = 'bookStore/books/GET_BOOKS_LOADING';
 const GET_BOOKS_SUCCESS = 'bookStore/books/GET_BOOKS_SUCCESS';
 const GET_BOOKS_FAILURE = 'bookStore/books/GET_BOOKS_FAILURE';
 
-const baseURL =
-  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4QxcBzIB2XstvQp9Xqxd/books';
+const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4QxcBzIB2XstvQp9Xqxd/books';
 
 const initialState = {
   books: [],
@@ -15,14 +14,10 @@ export const fetchBooks = () => (dispatch) => {
   dispatch({ type: GET_BOOKS_LOADING });
   return (
     fetch(baseURL)
-      // .then((response) => response.json())
+      .then((response) => response.text())
       // .then((response) => console.log(response))
       .then(
-        (data) =>
-          dispatch({
-            type: GET_BOOKS_SUCCESS,
-            data: typeof data === 'array' ? data.jsons : [],
-          }),
+        (data) => dispatch({ type: GET_BOOKS_SUCCESS, data }),
         (error) => dispatch({ type: GET_BOOKS_FAILURE, error }),
       )
   );

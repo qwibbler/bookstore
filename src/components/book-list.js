@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import store from '../redux/configureStore';
 import Book from './one-book';
 import { fetchBooks } from '../redux/thunk/thunk';
 
 const BooksList = () => {
   const bookList = useSelector((state) => state.booksList);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(fetchBooks());
   }, [dispatch]);
-  
-  console.log("BOOKS LIST", bookList.books);
+
+  console.log('BOOKS LIST', bookList.books);
   let content;
 
   if (bookList.loading) {
