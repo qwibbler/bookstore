@@ -24,7 +24,7 @@ const AddBook = () => {
         item_id: uuidv4(),
         title: state.title,
         author: state.author || 'Anonymous',
-        category: state.category || 'Unsorted'
+        category: state.category || 'Unsorted',
       };
       dispatch(postBook(newBook));
       setState({

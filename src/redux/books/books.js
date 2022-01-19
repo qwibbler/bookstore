@@ -1,4 +1,3 @@
-const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 
 const LOADING = 'bookStore/books/LOADING';
@@ -16,19 +15,13 @@ const POST_BOOKS_SUCCESS = 'bookStore/books/POST_BOOKS_SUCCESS';
 // const DELETE_BOOKS_SUCCESS = 'bookStore/books/DELETE_BOOKS_SUCCESS';
 // const DELETE_BOOKS_FAILURE = 'bookStore/books/DELETE_BOOKS_FAILURE';
 
-const baseURL =
-  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4QxcBzIB2XstvQp9Xqxd/books';
+const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4QxcBzIB2XstvQp9Xqxd/books';
 const initialState = {
   books: [],
   loading: false,
   loading_error: '',
   posting: false,
 };
-
-export const addBook = (payload) => ({
-  type: ADD_BOOK,
-  payload,
-});
 
 export const removeBook = (id) => ({
   type: REMOVE_BOOK,
@@ -80,8 +73,6 @@ export const postBook = (book) => (dispatch) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_BOOK:
-      return { ...state, books: [...state.books, action.payload] };
     case REMOVE_BOOK:
       return {
         ...state,
@@ -95,12 +86,12 @@ const reducer = (state = initialState, action) => {
       };
     }
     case GET_BOOKS_SUCCESS: {
-      let list = []
-      for (let id in action.data) {
-        list.push({item_id: id, ...action.data[id][0]})
-      }
-        console.log("THIS", list[0]);
-        return {
+      const list = [];
+      Object.keys(action.data).forEach((id) => {
+        list.push({ item_id: id, ...action.data[id][0] });
+      });
+      console.log('THIS', list[0]);
+      return {
         ...state,
         books: list,
         loading: false,

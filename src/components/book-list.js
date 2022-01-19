@@ -11,7 +11,6 @@ const BooksList = () => {
     dispatch(fetchBooks());
   }, [dispatch]);
 
-  console.log('BOOKS LIST', bookList.books);
   let content;
 
   if (bookList.loading) {
@@ -23,8 +22,8 @@ const BooksList = () => {
       <Book
         title={book.title}
         author={book.author}
-        id={book.id}
-        key={book.id}
+        id={book.item_id}
+        key={book.item_id}
         progress={book.progress}
         category={book.category}
       />
