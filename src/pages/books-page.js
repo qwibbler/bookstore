@@ -3,16 +3,17 @@ import { useSelector } from 'react-redux';
 import Book from '../components/one-book';
 import AddBook from '../components/add-book';
 
+// BOOK TEMPLATE
+// title: 'Title',
+// author: 'Author',
+// category: 'Category',
+// id: uuidv4(),
+// progress: {
+//   current: 10,
+//   total: 50,
+
 const Books = () => {
   const bookList = useSelector((state) => state.booksReducer);
-  // BOOK TEMPLATE
-  // title: 'Title',
-  // author: 'Author',
-  // category: 'Category',
-  // id: uuidv4(),
-  // progress: {
-  //   current: 10,
-  //   total: 50,
 
   return (
     <section className="books-section">
