@@ -2,7 +2,8 @@ const GET_BOOKS_LOADING = 'bookStore/books/GET_BOOKS_LOADING';
 const GET_BOOKS_SUCCESS = 'bookStore/books/GET_BOOKS_SUCCESS';
 const GET_BOOKS_FAILURE = 'bookStore/books/GET_BOOKS_FAILURE';
 
-const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4QxcBzIB2XstvQp9Xqxd/';
+const baseURL =
+  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4QxcBzIB2XstvQp9Xqxd/books';
 
 const initialState = {
   books: [],
@@ -12,11 +13,23 @@ const initialState = {
 
 export const fetchBooks = () => (dispatch) => {
   dispatch({ type: GET_BOOKS_LOADING });
-  return fetch(baseURL).then(
-    (bookList) => dispatch({ type: GET_BOOKS_SUCCESS, data: bookList }),
-    (error) => dispatch({ type: GET_BOOKS_FAILURE, error }),
+  return (
+    fetch(baseURL)
+      // .then((response) => response.json())
+      // .then((response) => console.log(response))
+      .then(
+        (data) =>
+          dispatch({
+            type: GET_BOOKS_SUCCESS,
+            data: typeof data === 'array' ? data.jsons : [],
+          }),
+        (error) => dispatch({ type: GET_BOOKS_FAILURE, error }),
+      )
   );
 };
+
+// .then(response => response.json())
+// .then(response => console.log(response))
 
 export default function thunkReducer(state = initialState, action) {
   switch (action.type) {
