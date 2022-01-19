@@ -1,14 +1,28 @@
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
-const GET_BOOKS_LOADING = 'bookStore/books/GET_BOOKS_LOADING';
-const GET_BOOKS_SUCCESS = 'bookStore/books/GET_BOOKS_SUCCESS';
-const GET_BOOKS_FAILURE = 'bookStore/books/GET_BOOKS_FAILURE';
 
-const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4QxcBzIB2XstvQp9Xqxd/books';
+const LOADING = 'bookStore/books/LOADING';
+const ERROR = 'bookStore/books/ERROR';
+
+// const GET_BOOKS_LOADING = 'bookStore/books/GET_BOOKS_LOADING';
+const GET_BOOKS_SUCCESS = 'bookStore/books/GET_BOOKS_SUCCESS';
+// const GET_BOOKS_FAILURE = 'bookStore/books/GET_BOOKS_FAILURE';
+
+// const POST_BOOKS_LOADING = 'bookStore/books/POST_BOOKS_LOADING';
+const POST_BOOKS_SUCCESS = 'bookStore/books/POST_BOOKS_SUCCESS';
+// const POST_BOOKS_FAILURE = 'bookStore/books/POST_BOOKS_FAILURE';
+
+// const DELETE_BOOKS_LOADING = 'bookStore/books/DELETE_BOOKS_LOADING';
+// const DELETE_BOOKS_SUCCESS = 'bookStore/books/DELETE_BOOKS_SUCCESS';
+// const DELETE_BOOKS_FAILURE = 'bookStore/books/DELETE_BOOKS_FAILURE';
+
+const baseURL =
+  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4QxcBzIB2XstvQp9Xqxd/books';
 const initialState = {
   books: [],
   loading: false,
-  error: '',
+  loading_error: '',
+  posting: false,
 };
 
 export const addBook = (payload) => ({
@@ -21,34 +35,48 @@ export const removeBook = (id) => ({
   id,
 });
 
-export const booksLoading = () => ({
-  type: GET_BOOKS_LOADING,
-});
-
-export const booksSuccess = (data) => ({
-  type: GET_BOOKS_SUCCESS,
-  data,
-});
-
-export const booksFailure = (error) => ({
-  type: GET_BOOKS_FAILURE,
-  error,
-});
-
 export const fetchBooks = () => (dispatch) => {
-  dispatch(booksLoading());
-  return (
-    fetch(baseURL)
-      .then((response) => response.text())
-      // .then((response) => console.log(response))
-      .then(
-        (data) => dispatch(booksSuccess(data)),
-        (error) => dispatch(booksFailure(error)),
-      )
-  );
+  dispatch({ type: LOADING });
+  return fetch(baseURL, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then(
+      (data) => dispatch({ type: GET_BOOKS_SUCCESS, data }),
+      (error) => dispatch({ type: ERROR, error }),
+    );
 };
 
-// export const
+export const postBook = (book) => (dispatch) => {
+  dispatch({ type: LOADING });
+  return fetch(baseURL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(book),
+  })
+    .then((response) => response.json())
+    .then(
+      (data) => dispatch({ type: POST_BOOKS_SUCCESS, data }),
+      (error) => dispatch({ type: ERROR, error }),
+    );
+};
+
+// export const deleteBook = (bookId) => (dispatch) => {
+//   dispatch({ type: LOADING });
+//   return (
+//     post(`${baseURL}/${bookId}`)
+//       .then((response) => response.text())
+//       .then(
+//         (data) => dispatch({ type: DELETE_BOOKS_SUCCESS, data }),
+//         (error) => dispatch({ type: ERROR, error }),
+//       )
+//   );
+// };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -59,7 +87,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         books: state.books.filter((book) => book.id !== action.id),
       };
-    case GET_BOOKS_LOADING: {
+    case LOADING: {
       return {
         ...state,
         loading: true,
@@ -67,17 +95,22 @@ const reducer = (state = initialState, action) => {
       };
     }
     case GET_BOOKS_SUCCESS: {
-      return {
+      let list = []
+      for (let id in action.data) {
+        list.push({item_id: id, ...action.data[id][0]})
+      }
+        console.log("THIS", list[0]);
+        return {
         ...state,
-        books: action.data,
+        books: list,
         loading: false,
       };
     }
-    case GET_BOOKS_FAILURE: {
+    case ERROR: {
       return {
         ...state,
         loading: false,
-        error: action.error,
+        loading_error: action.error,
       };
     }
     default:
