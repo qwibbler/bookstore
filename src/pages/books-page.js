@@ -14,7 +14,7 @@ import AddBook from '../components/add-book';
 //   total: 50,
 
 const Books = () => (
-  // const bookList = useSelector((state) => state.books);
+  // const bookList = useSelector((state) => state.books.books);
 
   <section className="books-section">
     {/* <div id="books-list">
