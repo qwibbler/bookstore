@@ -4,20 +4,14 @@ const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const LOADING = 'bookStore/books/LOADING';
 const ERROR = 'bookStore/books/ERROR';
 
-// const DELETE_BOOKS_SUCCESS = 'bookStore/books/DELETE_BOOKS_SUCCESS';
-
 const baseURL =
   'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4QxcBzIB2XstvQp9Xqxd/books';
+
 const initialState = {
   books: [],
   loading: false,
   error: '',
 };
-
-export const removeBook = (id) => ({
-  type: REMOVE_BOOK,
-  id,
-});
 
 export const fetchBooks = () => (dispatch) => {
   dispatch({ type: LOADING });
@@ -35,7 +29,6 @@ export const fetchBooks = () => (dispatch) => {
 };
 
 export const postBook = (book) => (dispatch) => {
-  dispatch({ type: LOADING });
   return fetch(baseURL, {
     method: 'POST',
     headers: {
@@ -43,7 +36,7 @@ export const postBook = (book) => (dispatch) => {
     },
     body: JSON.stringify(book),
   })
-    .then((response) => response.json())
+    .then((response) => response.text())
     .then(
       (data) => dispatch({ type: POST_BOOK, book, data }),
       (error) => dispatch({ type: ERROR, error }),
@@ -51,7 +44,6 @@ export const postBook = (book) => (dispatch) => {
 };
 
 export const deleteBook = (item_id) => (dispatch) => {
-  dispatch({ type: LOADING });
   return fetch(`${baseURL}/${item_id}`, {
     method: 'DELETE',
     headers: {
@@ -59,7 +51,7 @@ export const deleteBook = (item_id) => (dispatch) => {
     },
     body: JSON.stringify({ item_id }),
   })
-    .then((response) => response.data())
+    .then((response) => response.text())
     .then(
       (data) => dispatch({ type: REMOVE_BOOK, item_id, data }),
       (error) => dispatch({ type: ERROR, error }),
@@ -90,6 +82,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         books: state.books.filter((book) => book.item_id !== action.item_id),
+        loading: false,
       };
     case LOADING: {
       return {
