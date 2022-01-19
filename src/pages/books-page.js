@@ -1,7 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import Book from '../components/one-book';
-// import BooksList from '../components/books';
+// import { useSelector } from 'react-redux';
+// import Book from '../components/one-book';
+import BooksList from '../components/book-list';
 import AddBook from '../components/add-book';
 
 // BOOK TEMPLATE
@@ -13,12 +13,11 @@ import AddBook from '../components/add-book';
 //   current: 10,
 //   total: 50,
 
-const Books = () => {
-  const bookList = useSelector((state) => state.books);
+const Books = () => (
+  // const bookList = useSelector((state) => state.books);
 
-  return (
-    <section className="books-section">
-      <div id="books-list">
+  <section className="books-section">
+    {/* <div id="books-list">
         {bookList.map((book) => (
           <Book
             title={book.title}
@@ -29,9 +28,9 @@ const Books = () => {
             category={book.category}
           />
         ))}
-      </div>
-      <AddBook />
-    </section>
-  );
-};
+      </div> */}
+    <BooksList />
+    <AddBook />
+  </section>
+);
 export default Books;
