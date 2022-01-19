@@ -1,6 +1,4 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
-// import Book from '../components/one-book';
 import BooksList from '../components/book-list';
 import AddBook from '../components/add-book';
 
@@ -14,21 +12,7 @@ import AddBook from '../components/add-book';
 //   total: 50,
 
 const Books = () => (
-  // const bookList = useSelector((state) => state.books.books);
-
   <section className="books-section">
-    {/* <div id="books-list">
-        {bookList.map((book) => (
-          <Book
-            title={book.title}
-            author={book.author}
-            id={book.id}
-            key={book.id}
-            progress={book.progress}
-            category={book.category}
-          />
-        ))}
-      </div> */}
     <BooksList />
     <AddBook />
   </section>

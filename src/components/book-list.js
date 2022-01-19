@@ -6,19 +6,17 @@ import { fetchBooks } from '../redux/books/books';
 const BooksList = () => {
   const bookList = useSelector((state) => state.books);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchBooks());
   }, [dispatch]);
 
   let content;
-
   if (bookList.loading) {
     content = 'Loading...';
   } else if (bookList.error) {
     content = `Error: ${bookList.error}`;
   } else {
-    content = bookList.books ? bookList.books.map((book) => (
+    content = bookList.books.map((book) => (
       <Book
         title={book.title}
         author={book.author}
@@ -27,7 +25,7 @@ const BooksList = () => {
         progress={book.progress}
         category={book.category}
       />
-    )) : null;
+    ));
   }
   return <div id="books-list">{content}</div>;
 };
