@@ -27,15 +27,11 @@
   align-items: flex-end;
 }
 
-.book-details ul button {
-  background-color: transparent;
-  border: none;
+.book-details ul a {
   font-size: 0.875rem;
   font-weight: 300;
   color: #4386bf;
-  border-radius: 3px;
-  border: none;
-  box-shadow: none;
+  cursor: pointer;
 }
 
 .book-details ul hr {

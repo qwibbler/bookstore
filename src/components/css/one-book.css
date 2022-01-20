@@ -4,8 +4,8 @@
   width: 75rem;
   justify-content: space-between;
   align-items: center;
-  text-align: left;
   background-color: white;
   border: solid 1px #e8e8e8;
   border-radius: 4px;
+  margin-bottom: 1rem;
 }

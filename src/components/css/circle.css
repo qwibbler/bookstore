@@ -1,8 +1,8 @@
 /* adapted from https://www.foolishdeveloper.com/2021/09/circular-progress-bar.html */
 
 .circle-wrap {
-  --diameter: 8rem;
-  --radius: 4rem;
+  --diameter: 6rem;
+  --radius: 3rem;
   --degrees: 20deg;
   display: grid;
   grid-template-columns: repeat(1, 160px);
@@ -26,25 +26,25 @@
 }
 
 .circle-wrap .inside-circle {
-  width: calc(var(--diameter) - 26px);
-  height: calc(var(--diameter) - 26px);
+  width: calc(var(--diameter) - 1rem);
+  height: calc(var(--diameter) - 1rem);
   border-radius: 50%;
   background: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 13px;
-  margin-left: 13px;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
   color: #121212;
   position: absolute;
   z-index: 100;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .mask .fill {
   clip: rect(0px, var(--radius), var(--diameter), 0px);
-  background-color: #ec0c0c;
+  background: linear-gradient(to bottom, #307bbe, #379cf6);;
 }
 
 .mask.full,

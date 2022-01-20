@@ -18,11 +18,11 @@ const BookDetails = (props) => {
       <p className="book-title">{title}</p>
       <p className="author">{author}</p>
       <ul className="options">
-        <li><button type="button">Comments</button></li>
+        <li><a>Comments</a></li>
         <li><hr /></li>
-        <li><button type="button" onClick={remove}>Remove</button></li>
+        <li><a onClick={remove}>Remove</a></li>
         <li><hr /></li>
-        <li><button type="button">Edit</button></li>
+        <li><a type="button">Edit</a></li>
       </ul>
     </div>
   );

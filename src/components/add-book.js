@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { postBook } from '../redux/books/books';
+import './css/add-book.css';
 
 const AddBook = () => {
   const [state, setState] = useState({
@@ -40,26 +41,32 @@ const AddBook = () => {
 
   return (
     <form>
-      <input
-        type="text"
-        id="input-title"
-        name="title"
-        placeholder="Book Title"
-        value={state.title}
-        onChange={handleChange}
-        required
-      />
-      by
-      <input
-        type="text"
-        id="input-author"
-        name="author"
-        placeholder="Author"
-        value={state.author}
-        onChange={handleChange}
-      />
-      <input type="select" placeholder="Category" disabled />
-      <input type="submit" value="Add Book" onClick={submitBookToStore} />
+      <hr />
+      <h2>ADD NEW BOOK</h2>
+      <div class="inputs">
+        <input
+          type="text"
+          id="input-title"
+          name="title"
+          placeholder="Book Title"
+          value={state.title}
+          onChange={handleChange}
+          required
+        />
+        by
+        <input
+          type="text"
+          id="input-author"
+          name="author"
+          placeholder="Author"
+          value={state.author}
+          onChange={handleChange}
+        />
+        <input type="select" placeholder="Category" disabled />
+        <button type="submit" onClick={submitBookToStore}>
+          Add Book
+        </button>
+      </div>
     </form>
   );
 };
