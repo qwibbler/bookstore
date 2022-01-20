@@ -19,7 +19,7 @@ Book.defaultProps = {
   category: 'Unsorted',
   progress: {
     current: 0,
-    total: 100,
+    total: 0,
   },
 };
 Book.propTypes = {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Progress = (props) => {
   const { progress } = props;
-  const percentage = (progress.current / progress.total) * 100;
+  const percentage = (progress.current / progress.total) * 100 || 0;
   return (
     <div className="progress-wrapper">
       <div className="show-progress">
