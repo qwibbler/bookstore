@@ -1,0 +1,46 @@
+
+.book-details {
+  margin: 2rem auto 1.75rem 1.688rem;
+}
+
+.category {
+  font-size: 0.875rem;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.book-title {
+  font-size: 1.375rem;
+  font-weight: bold;
+}
+
+.author {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #4386bf;
+  margin-bottom: 1.3rem;
+}
+
+.book-details ul {
+  list-style: none;
+  display: flex;
+  align-items: flex-end;
+}
+
+.book-details ul button {
+  background-color: transparent;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #4386bf;
+  border-radius: 3px;
+  border: none;
+  box-shadow: none;
+}
+
+.book-details ul hr {
+  width: 0;
+  height: 1rem;
+  margin: 0 1rem;
+  color: #e8e8e8;
+}

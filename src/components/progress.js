@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './css/progress.css'
 
 const Progress = (props) => {
   const { progress } = props;
@@ -7,16 +8,20 @@ const Progress = (props) => {
   return (
     <div className="progress-wrapper">
       <div className="show-progress">
-        <p>{`${percentage}%`}</p>
-        <p>Complete</p>
+        <div className="progress-pic" />
+        <p className="percentage">{`${percentage}%`}</p>
+        <p className="complete">Complete</p>
       </div>
+      <hr />
       <div className="update-progress">
-        <p>Current chapter</p>
-        <p>
-          Chapter
+        <p className="current">Current chapter</p>
+        <p className="chapter">
+          Chapter &nbsp;
           {progress.current}
         </p>
-        <button type="button" className="update">Update Progress</button>
+        <button type="button" className="update">
+          Update Progress
+        </button>
       </div>
     </div>
   );

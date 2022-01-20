@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Progress from './progress';
 import BookDetails from './book-details';
+import './css/one-book.css';
 
 const Book = (props) => {
   const {

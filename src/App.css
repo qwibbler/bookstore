@@ -7,7 +7,10 @@ section {
   top: 6rem;
   left: 0;
   right: 0;
+  bottom: 0;
   text-align: center;
+  padding: 2.3rem 6.25rem;
+  background-color: #fafafa;
 }
 
 #books-list {
@@ -16,7 +19,10 @@ section {
   flex-wrap: wrap;
 }
 
-.book-wrapper {
-  display: flex;
-  justify-content: center;
+hr {
+  color: #e8e8e8;
+}
+
+button:hover {
+  cursor: pointer;
 }
