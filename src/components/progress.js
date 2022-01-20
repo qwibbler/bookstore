@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './css/progress.css'
+import Circle from './circle'
+import './css/progress.css';
 
 const Progress = (props) => {
   const { progress } = props;
-  const percentage = (progress.current / progress.total) * 100 || 0;
+  const percentage = Math.round((progress.current / progress.total) * 100) || 0;
   return (
     <div className="progress-wrapper">
       <div className="show-progress">
-        <div className="progress-pic" />
-        <p className="percentage">{`${percentage}%`}</p>
-        <p className="complete">Complete</p>
+        <Circle percentage={percentage} />
       </div>
       <hr />
       <div className="update-progress">

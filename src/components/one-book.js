@@ -20,8 +20,8 @@ Book.defaultProps = {
   author: 'Anonymous',
   category: 'Unsorted',
   progress: {
-    current: 0,
-    total: 0,
+    current: Math.floor(Math.random() * 100),
+    total: 100,
   },
 };
 Book.propTypes = {

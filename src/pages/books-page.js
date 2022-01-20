@@ -9,7 +9,7 @@ import AddBook from '../components/add-book';
 // id: uuidv4(),
 // progress: {
 //   current: 10,
-//   total: 50,
+//   total: 50, }
 
 const Books = () => {
   const nav = document.querySelector('nav');

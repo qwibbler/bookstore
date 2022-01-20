@@ -1,15 +1,6 @@
-
 .progress-wrapper {
   display: flex;
   margin: 2rem 9.18rem 2.188rem auto;
-}
-
-.progress-pic {
-  width: 4.25rem;
-  height: 4.25rem;
-  border-radius: 100%;
-  background: linear-gradient(to bottom, #307bbe, #379cf6);
-  background-clip: border;
 }
 
 .percentage {
@@ -31,7 +22,6 @@
   opacity: 0.5;
   font-size: 0.813rem;
   font-weight: 300;
-
 }
 
 .chapter {

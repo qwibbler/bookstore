@@ -25,6 +25,10 @@ const AddBook = () => {
         title: state.title,
         author: state.author || 'Anonymous',
         category: state.category || 'Unsorted',
+        progress: {
+          current: 10,
+          total: 50,
+        },
       };
       dispatch(postBook(newBook));
       setState({
