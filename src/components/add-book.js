@@ -43,7 +43,7 @@ const AddBook = () => {
     <form>
       <hr />
       <h2>ADD NEW BOOK</h2>
-      <div class="inputs">
+      <div className="inputs">
         <input
           type="text"
           id="input-title"

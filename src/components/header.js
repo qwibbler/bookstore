@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './css/header.css';
+import profile from '../profile-icon.svg';
 
 const Header = () => (
   <header>
@@ -9,7 +10,7 @@ const Header = () => (
       <Link to="/"> Books </Link>
       <Link to="/categories"> Categories </Link>
     </nav>
-    <button type="button">Login</button>
+    <img src={profile} alt="Login" />
   </header>
 );
 export default Header;

@@ -15,10 +15,9 @@ const Books = () => {
   const nav = document.querySelector('nav');
   console.log(nav);
   if (nav){
-    nav.firstChild.classList.toggle('active', false);
-    nav.lastChild.classList.toggle('active', true);
+    nav.firstChild.classList.toggle('active', true);
+    nav.lastChild.classList.toggle('active', false);
   }
-
   return (
     <section className="books-section">
       <BooksList />

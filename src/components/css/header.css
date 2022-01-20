@@ -36,6 +36,10 @@ header nav .active {
   opacity: 1;
 }
 
-header button {
+header img {
+  width: 2.8rem;
+  height: 2.8rem;
+  filter: invert(52%) sepia(95%) saturate(3805%) hue-rotate(185deg) brightness(97%) contrast(111%);
   margin: auto 6.25rem auto auto;
+  cursor: pointer;
 }
