@@ -14,6 +14,7 @@ const Book = (props) => {
     </div>
   );
 };
+
 Book.defaultProps = {
   author: 'Anonymous',
   category: 'Unsorted',

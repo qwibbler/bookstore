@@ -1,0 +1,26 @@
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin-bottom: 2.375rem;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 1.438rem 6.188rem 1.688rem 6.25rem; */
+}
+
+h1 {
+  font-size: 1.875rem;
+  margin: 1.8rem 2.9rem 1.8rem 6.25rem;
+  font-weight: bold;
+  color: #0290ff;
+}
+
+nav {
+  font-size: 0.813rem;
+  letter-spacing: 1.9px;
+}
+
+nav a {
+  margin: auto 2.5rem auto 0;
+}
