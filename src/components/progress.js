@@ -1,10 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import Circle from './circle';
 import './css/progress.css';
 
-const Progress = (props) => {
-  // const { progress } = props;
+const Progress = () => {
   const current = Math.floor(Math.random() * 100);
   const total = current + Math.floor(Math.random() * 100);
   const percentage = Math.round((current / total) * 100) || 0;
@@ -31,7 +29,4 @@ const Progress = (props) => {
     </div>
   );
 };
-// Progress.propTypes = {
-//   progress: PropTypes.objectOf(PropTypes.number).isRequired,
-// };
 export default Progress;
