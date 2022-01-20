@@ -4,7 +4,8 @@ const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const LOADING = 'bookStore/books/LOADING';
 const ERROR = 'bookStore/books/ERROR';
 
-const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4QxcBzIB2XstvQp9Xqxd/books';
+const baseURL =
+  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/4QxcBzIB2XstvQp9Xqxd/books';
 
 const initialState = {
   books: [],
@@ -27,31 +28,33 @@ export const fetchBooks = () => (dispatch) => {
     );
 };
 
-export const postBook = (book) => (dispatch) => fetch(baseURL, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(book),
-})
-  .then((response) => response.text())
-  .then(
-    (data) => dispatch({ type: POST_BOOK, book, data }),
-    (error) => dispatch({ type: ERROR, error }),
-  );
+export const postBook = (book) => (dispatch) =>
+  fetch(baseURL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(book),
+  })
+    .then((response) => response.text())
+    .then(
+      (data) => dispatch({ type: POST_BOOK, book, data }),
+      (error) => dispatch({ type: ERROR, error }),
+    );
 
-export const deleteBook = (itemId) => (dispatch) => fetch(`${baseURL}/${itemId}`, {
-  method: 'DELETE',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ item_id: itemId }),
-})
-  .then((response) => response.text())
-  .then(
-    (data) => dispatch({ type: REMOVE_BOOK, item_id: itemId, data }),
-    (error) => dispatch({ type: ERROR, error }),
-  );
+export const deleteBook = (itemId) => (dispatch) =>
+  fetch(`${baseURL}/${itemId}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ item_id: itemId }),
+  })
+    .then((response) => response.text())
+    .then(
+      (data) => dispatch({ type: REMOVE_BOOK, item_id: itemId, data }),
+      (error) => dispatch({ type: ERROR, error }),
+    );
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -62,7 +65,7 @@ const reducer = (state = initialState, action) => {
       });
       return {
         ...state,
-        books: [...state.books, ...list],
+        books: [...list],
         loading: false,
       };
     }
@@ -90,7 +93,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        loading_error: action.error,
+        error: action.error,
       };
     }
     default:

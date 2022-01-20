@@ -11,10 +11,19 @@ import AddBook from '../components/add-book';
 //   current: 10,
 //   total: 50,
 
-const Books = () => (
-  <section className="books-section">
-    <BooksList />
-    <AddBook />
-  </section>
-);
+const Books = () => {
+  const nav = document.querySelector('nav');
+  console.log(nav);
+  if (nav){
+    nav.firstChild.classList.toggle('active', false);
+    nav.lastChild.classList.toggle('active', true);
+  }
+
+  return (
+    <section className="books-section">
+      <BooksList />
+      <AddBook />
+    </section>
+  );
+};
 export default Books;

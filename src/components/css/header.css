@@ -6,6 +6,7 @@ header {
   margin-bottom: 2.375rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   /* padding: 1.438rem 6.188rem 1.688rem 6.25rem; */
 }
 
@@ -23,4 +24,15 @@ nav {
 
 nav a {
   margin: auto 2.5rem auto 0;
+  text-decoration: none;
+  color: #121212;
+  opacity: 0.5;
+}
+
+nav .active {
+  opacity: 1;
+}
+
+button {
+  margin: auto 6.25rem auto auto;
 }
