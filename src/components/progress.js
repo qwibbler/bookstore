@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Circle from './circle'
+import Circle from './circle';
 import './css/progress.css';
 
 const Progress = (props) => {
-  const { progress } = props;
-  const percentage = Math.round((progress.current / progress.total) * 100) || 0;
+  // const { progress } = props;
+  const current = Math.floor(Math.random() * 100);
+  const total = current + Math.floor(Math.random() * 100);
+  const percentage = Math.round((current / total) * 100) || 0;
   return (
     <div className="progress-wrapper">
       <div className="show-progress">
@@ -13,10 +15,10 @@ const Progress = (props) => {
       </div>
       <hr />
       <div className="update-progress">
-        <p className="current">Current chapter</p>
+        <p className="current">Current Chapter</p>
         <p className="chapter">
           Chapter &nbsp;
-          {progress.current}
+          {current} of {total}
         </p>
         <button type="button" className="update">
           Update Progress
@@ -25,7 +27,7 @@ const Progress = (props) => {
     </div>
   );
 };
-Progress.propTypes = {
-  progress: PropTypes.objectOf(PropTypes.number).isRequired,
-};
+// Progress.propTypes = {
+//   progress: PropTypes.objectOf(PropTypes.number).isRequired,
+// };
 export default Progress;
