@@ -27,10 +27,12 @@
   align-items: flex-end;
 }
 
-.book-details ul a {
+.book-details ul button {
+  padding: 0;
   font-size: 0.875rem;
   font-weight: 300;
   color: #4386bf;
+  background: none;
   cursor: pointer;
 }
 

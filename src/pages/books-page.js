@@ -13,8 +13,7 @@ import AddBook from '../components/add-book';
 
 const Books = () => {
   const nav = document.querySelector('nav');
-  console.log(nav);
-  if (nav){
+  if (nav) {
     nav.firstChild.classList.toggle('active', true);
     nav.lastChild.classList.toggle('active', false);
   }

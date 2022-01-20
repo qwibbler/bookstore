@@ -8,13 +8,14 @@ const circle = ({ percentage }) => {
     <div className="circle-wrap" style={cssProperties}>
       <div className="circle">
         <div className="mask full">
-          <div className="fill"></div>
+          <div className="fill" />
         </div>
         <div className="mask half">
-          <div className="fill"></div>
+          <div className="fill" />
         </div>
         <div className="inside-circle">
-          {percentage}%
+          {percentage}
+          %
           <p className="complete">Complete</p>
         </div>
       </div>

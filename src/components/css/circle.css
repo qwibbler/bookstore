@@ -4,6 +4,7 @@
   --diameter: 6rem;
   --radius: 3rem;
   --degrees: 20deg;
+
   display: grid;
   grid-template-columns: repeat(1, 160px);
   grid-gap: 80px;
@@ -13,19 +14,19 @@
   border-radius: 50%;
 }
 
-.circle-wrap .circle .mask,
-.circle-wrap .circle .fill {
+.mask,
+.fill {
   width: var(--diameter);
   height: var(--diameter);
   position: absolute;
   border-radius: 50%;
 }
 
-.circle-wrap .circle .mask {
-  clip: rect(0px, var(--diameter), var(--diameter), var(--radius));
+.mask {
+  clip: rect(0, var(--diameter), var(--diameter), var(--radius));
 }
 
-.circle-wrap .inside-circle {
+.inside-circle {
   width: calc(var(--diameter) - 1rem);
   height: calc(var(--diameter) - 1rem);
   border-radius: 50%;
@@ -42,9 +43,9 @@
   font-size: 1.8rem;
 }
 
-.mask .fill {
-  clip: rect(0px, var(--radius), var(--diameter), 0px);
-  background: linear-gradient(to bottom, #307bbe, #379cf6);;
+.fill {
+  clip: rect(0, var(--radius), var(--diameter), 0);
+  background: linear-gradient(to bottom, #307bbe, #379cf6);
 }
 
 .mask.full,
@@ -57,6 +58,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(var(--degrees));
   }
