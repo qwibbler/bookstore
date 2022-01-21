@@ -1,0 +1,65 @@
+/* adapted from https://www.foolishdeveloper.com/2021/09/circular-progress-bar.html */
+
+.circle-wrap {
+  --diameter: 6rem;
+  --radius: 3rem;
+  --degrees: 20deg;
+
+  display: grid;
+  grid-template-columns: repeat(1, 160px);
+  grid-gap: 80px;
+  width: var(--diameter);
+  height: var(--diameter);
+  background: #d9d7da;
+  border-radius: 50%;
+}
+
+.mask,
+.fill {
+  width: var(--diameter);
+  height: var(--diameter);
+  position: absolute;
+  border-radius: 50%;
+}
+
+.mask {
+  clip: rect(0, var(--diameter), var(--diameter), var(--radius));
+}
+
+.inside-circle {
+  width: calc(var(--diameter) - 1rem);
+  height: calc(var(--diameter) - 1rem);
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  color: #121212;
+  position: absolute;
+  z-index: 100;
+  font-size: 1.8rem;
+}
+
+.fill {
+  clip: rect(0, var(--radius), var(--diameter), 0);
+  background: linear-gradient(to bottom, #307bbe, #379cf6);
+}
+
+.mask.full,
+.circle .fill {
+  animation: fill ease-in-out 3s;
+  transform: rotate(var(--degrees));
+}
+
+@keyframes fill {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(var(--degrees));
+  }
+}

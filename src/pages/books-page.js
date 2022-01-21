@@ -9,12 +9,19 @@ import AddBook from '../components/add-book';
 // id: uuidv4(),
 // progress: {
 //   current: 10,
-//   total: 50,
+//   total: 50, }
 
-const Books = () => (
-  <section className="books-section">
-    <BooksList />
-    <AddBook />
-  </section>
-);
+const Books = () => {
+  const nav = document.querySelector('nav');
+  if (nav) {
+    nav.firstChild.classList.toggle('active', true);
+    nav.lastChild.classList.toggle('active', false);
+  }
+  return (
+    <section className="books-section">
+      <BooksList />
+      <AddBook />
+    </section>
+  );
+};
 export default Books;

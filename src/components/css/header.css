@@ -1,0 +1,44 @@
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin-bottom: 2.375rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  height: 6rem;
+  border: solid 1px #e8e8e8;
+}
+
+header h1 {
+  font-size: 1.875rem;
+  margin: 1.8rem 2.9rem 1.8rem 6.25rem;
+  font-weight: bold;
+  color: #0290ff;
+}
+
+header nav {
+  font-size: 0.813rem;
+  letter-spacing: 1.9px;
+}
+
+header nav a {
+  margin: auto 2.5rem auto 0;
+  text-decoration: none;
+  color: #121212;
+  opacity: 0.5;
+}
+
+header nav .active {
+  opacity: 1;
+}
+
+header img {
+  width: 2.8rem;
+  height: 2.8rem;
+  filter: invert(52%) sepia(95%) saturate(3805%) hue-rotate(185deg) brightness(97%) contrast(111%);
+  margin: auto 6.25rem auto auto;
+  cursor: pointer;
+}

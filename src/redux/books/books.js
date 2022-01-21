@@ -62,7 +62,7 @@ const reducer = (state = initialState, action) => {
       });
       return {
         ...state,
-        books: [...state.books, ...list],
+        books: [...list],
         loading: false,
       };
     }
@@ -90,7 +90,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        loading_error: action.error,
+        error: action.error,
       };
     }
     default:

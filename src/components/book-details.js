@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteBook } from '../redux/books/books';
+import './css/book-details.css';
 
 const BookDetails = (props) => {
   const {
@@ -17,9 +18,11 @@ const BookDetails = (props) => {
       <p className="book-title">{title}</p>
       <p className="author">{author}</p>
       <ul className="options">
-        <li>Comments</li>
+        <li><button type="button">Comments</button></li>
+        <li><hr /></li>
         <li><button type="button" onClick={remove}>Remove</button></li>
-        <li>Edit</li>
+        <li><hr /></li>
+        <li><button type="button">Edit</button></li>
       </ul>
     </div>
   );

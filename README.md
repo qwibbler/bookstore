@@ -1,43 +1,38 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Bookstore
 
-> One paragraph statement about the project.
+> Your "currently reading" book list, complete with your progress and running commentary, saved in an online API. Built with React-Redux.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./Screenshot.png)
 
 Additional description about the project and its features.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- React-Redux
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Heroku](https://qwibbler-bookstore.herokuapp.com/)
+[Netlify](https://qwibbler-bookstore.netlify.app/)
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+Node.js
 
 ### Setup
+Clone the repository and `cd` into the repository folder.
 
 ### Install
+Run `npm i` on your local terminal.
 
 ### Usage
-
-### Run tests
-
-### Deployment
+Add your "Currently Reading" books using the form at the bottom. Keep track of your reading progress as you read. Write down your thoughts in the comment section. Enjoy!
 
 
 
@@ -48,12 +43,6 @@ To get a local copy up and running follow these simple example steps.
 - GitHub: [@qwibbler](https://github.com/qwibbler)
 - Twitter: [@hmemaz](https://twitter.com/hmemaz)
 - LinkedIn: [Humaira Zaman](https://www.linkedin.com/in/hmemaz1994/)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 ## 🤝 Contributing
 

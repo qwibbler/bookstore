@@ -1,0 +1,36 @@
+.progress-wrapper {
+  display: flex;
+  margin: 2rem 9.18rem 2.188rem auto;
+}
+
+.percentage {
+  font-size: 2rem;
+}
+
+.complete {
+  opacity: 0.5;
+  font-size: 0.875rem;
+}
+
+.progress-wrapper hr {
+  width: 0;
+  margin: 0 5rem;
+  color: #e8e8e8;
+}
+
+.current {
+  opacity: 0.5;
+  font-size: 0.813rem;
+  font-weight: 300;
+}
+
+.chapter {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: -0.4px;
+  margin-bottom: 1.3rem;
+}
+
+.progress-wrapper button {
+  width: 11.5rem;
+}
