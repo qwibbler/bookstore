@@ -4,7 +4,7 @@
 
 > Your "currently reading" book list, complete with your progress and running commentary, saved in an online API. Built with React-Redux.
 
-![screenshot](./screenshot.png)
+![screenshot](./Screenshot.png)
 
 Additional description about the project and its features.
 
