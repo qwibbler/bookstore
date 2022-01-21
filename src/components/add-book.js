@@ -16,8 +16,7 @@ const AddBook = () => {
       ...state,
       [e.target.name]: e.target.value,
     });
-    if (e.target.name === 'category')
-      e.target.classList.toggle('placeholder', false);
+    if (e.target.name === 'category') e.target.classList.toggle('placeholder', false);
   };
 
   const dispatch = useDispatch();

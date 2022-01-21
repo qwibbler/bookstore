@@ -37,7 +37,7 @@ form input {
 
 form input ::placeholder,
 .placeholder {
-  color: #888888;
+  color: #888;
 }
 
 form button {
