@@ -16,7 +16,7 @@ const AddBook = () => {
       ...state,
       [e.target.name]: e.target.value,
     });
-    if (e.target.name === 'category') e.target.classList.toggle('placeholder', false);
+    if (e.target.name === 'category') e.target.classList.remove('placeholder');
   };
 
   const dispatch = useDispatch();
@@ -39,6 +39,8 @@ const AddBook = () => {
         author: '',
         category: '',
       });
+      document.querySelector('select').selectedIndex = 0;
+      document.querySelector('select').classList.add('placeholder');
     }
   };
 
