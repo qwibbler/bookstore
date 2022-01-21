@@ -8,6 +8,7 @@ const AddBook = () => {
   const [state, setState] = useState({
     title: '',
     author: '',
+    category: '',
   });
 
   const handleChange = (e) => {
@@ -15,6 +16,8 @@ const AddBook = () => {
       ...state,
       [e.target.name]: e.target.value,
     });
+    if (e.target.name === 'category')
+      e.target.classList.toggle('placeholder', false);
   };
 
   const dispatch = useDispatch();
@@ -35,6 +38,7 @@ const AddBook = () => {
       setState({
         title: '',
         author: '',
+        category: '',
       });
     }
   };
@@ -53,16 +57,20 @@ const AddBook = () => {
           onChange={handleChange}
           required
         />
-        by
-        <input
-          type="text"
-          id="input-author"
-          name="author"
-          placeholder="Author"
-          value={state.author}
+        <select
+          name="category"
+          className="placeholder"
           onChange={handleChange}
-        />
-        <input type="select" placeholder="Category" disabled />
+          required
+        >
+          <option value="" disabled selected hidden>
+            Category
+          </option>
+          <option value="unsorted">Unsorted</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Nonfiction">Nonfiction</option>
+          <option value="Other">Other</option>
+        </select>
         <button type="submit" onClick={submitBookToStore}>
           Add Book
         </button>

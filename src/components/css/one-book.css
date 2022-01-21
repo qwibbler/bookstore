@@ -1,7 +1,6 @@
 
 .book-wrapper {
   display: flex;
-  width: 75rem;
   justify-content: space-between;
   align-items: center;
   background-color: white;

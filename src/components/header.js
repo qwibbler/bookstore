@@ -7,7 +7,7 @@ const Header = () => (
   <header>
     <h1>Bookstore CMS</h1>
     <nav>
-      <Link to="/"> Books </Link>
+      <Link to="/" className="active"> Books </Link>
       <Link to="/categories"> Categories </Link>
     </nav>
     <img src={profile} alt="Login" />

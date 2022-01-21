@@ -19,6 +19,7 @@ form .inputs {
   display: flex;
 }
 
+select,
 form input {
   flex-grow: 1;
   border-radius: 4px;
@@ -30,8 +31,13 @@ form input {
   padding: 0.5rem 1.3rem;
 }
 
-form input::placeholder {
-  color: #c4c4c4;
+form input {
+  flex-grow: 2;
+}
+
+form input ::placeholder,
+.placeholder {
+  color: #888888;
 }
 
 form button {
